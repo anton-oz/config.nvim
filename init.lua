@@ -1,6 +1,7 @@
 --    MOST IMPORTANTLY, we provide a keymap "<space>sh" to [s]earch the [h]elp documentation,
 --    which is very useful when you're not exactly sure of what you're looking for.
-
+vim.cmd 'autocmd BufEnter * set formatoptions-=cro'
+vim.cmd 'autocmd BufEnter * setlocal formatoptions-=cro'
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -675,7 +676,7 @@ require('lazy').setup({
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true }
+        local disable_filetypes = {}
         if disable_filetypes[vim.bo[bufnr].filetype] then
           return nil
         else
@@ -692,6 +693,13 @@ require('lazy').setup({
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        c = { 'clang-format' },
+        cpp = { 'clang-format' },
+      },
+      formatters = {
+        clang_format = {
+          config = { '/home/son/.clang-format' },
+        },
       },
     },
   },
