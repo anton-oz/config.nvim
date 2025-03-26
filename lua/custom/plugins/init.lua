@@ -14,4 +14,14 @@ return {
     },
     opts = {}, -- your configuration
   },
+  {
+    'windwp/nvim-ts-autotag',
+    name = 'nvim-ts-autotag',
+    --    build = ':UpdateRemotePlugins',
+    opts = {
+      enable_close = true,
+      enable_rename = true,
+      auto_close_on_slash = false,
+    },
+  },
 }
