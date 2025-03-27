@@ -17,7 +17,7 @@ return {
   {
     'windwp/nvim-ts-autotag',
     name = 'nvim-ts-autotag',
-    --    build = ':UpdateRemotePlugins',
+    build = ':UpdateRemotePlugins',
     opts = {
       enable_close = true,
       enable_rename = true,
