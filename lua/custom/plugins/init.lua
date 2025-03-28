@@ -18,11 +18,16 @@ return {
     'windwp/nvim-ts-autotag',
     name = 'nvim-ts-autotag',
     build = ':UpdateRemotePlugins',
-    opts = {
-      enable_close = true,
-      enable_rename = true,
-      auto_close_on_slash = false,
-    },
+    opts = function()
+      require('nvim-ts-autotag').setup {
+        opts = {
+          enable_close = true,
+          enable_rename = true,
+          auto_close_on_slash = true,
+        },
+      }
+    end,
+    lazy = false,
   },
   {
     'Mofiqul/vscode.nvim',

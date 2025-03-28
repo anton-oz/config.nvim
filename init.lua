@@ -88,6 +88,16 @@ vim.opt.confirm = true
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+local function toggle_diagnostic_float()
+  if vim.diagnostic.open_float then
+    vim.diagnostic.open_float()
+  else
+    vim.diagnostic.close()
+  end
+end
+
+vim.keymap.set('n', 'm', toggle_diagnostic_float)
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -920,7 +930,6 @@ require('lazy').setup({
         additional_vim_regex_highlighting = { 'ruby' },
       },
       indent = { enable = true, disable = { 'ruby' } },
-      autotag = { enable = false },
     },
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
