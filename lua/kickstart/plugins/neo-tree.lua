@@ -14,8 +14,10 @@ return {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
     { '<F2>', ':Neotree current<CR>', desc = 'Neotree full view', silent = true },
   },
+  lazy = false,
   opts = {
     filesystem = {
+      hijack_netrw_behavior = 'open_current',
       window = {
         mappings = {
           ['\\'] = 'close_window',
