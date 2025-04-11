@@ -65,9 +65,16 @@ return {
     },
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
   },
-  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000, opts = {
-    styles = {
-      comments = {},
-    },
-  } },
+  -- stylua: ignore start
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
+    opts = {
+      styles = {
+        comments = {},
+      },
+    }
+  },
+  -- stylua: ignore end
 }
