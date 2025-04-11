@@ -933,6 +933,7 @@ require('lazy').setup({
         'css',
         'scss',
         'rust',
+        'python',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
