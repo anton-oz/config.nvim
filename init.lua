@@ -653,6 +653,17 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        -- NOTE: PUT LSP's that you want to sync here!!
+        'bash-language-server',
+        'clang-format',
+        'clangd',
+        'eslint-lsp',
+        'lua-language-server',
+        'prettier',
+        'prettierd',
+        'python-lsp-server',
+        'tailwindcss-language-server',
+        'typescript-language-server',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -1061,12 +1072,12 @@ map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 local barbarOpts = { noremap = true, silent = true }
 
 -- Move to previous/next
-map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', barbarOpts)
-map('n', '<A-.>', '<Cmd>BufferNext<CR>', barbarOpts)
+map('n', '<A-h>', '<Cmd>BufferPrevious<CR>', barbarOpts)
+map('n', '<A-l>', '<Cmd>BufferNext<CR>', barbarOpts)
 
 -- Re-order to previous/next
-map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', barbarOpts)
-map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', barbarOpts)
+map('n', '<A-H>', '<Cmd>BufferMovePrevious<CR>', barbarOpts)
+map('n', '<A-L>', '<Cmd>BufferMoveNext<CR>', barbarOpts)
 
 -- Goto buffer in position...
 map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', barbarOpts)
