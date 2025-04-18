@@ -6,6 +6,8 @@
 -- vim.cmd 'autocmd BufEnter * set formatoptions-=cro'
 -- vim.cmd 'autocmd BufEnter * setlocal formatoptions-=cro'
 
+-- https://github.com
+
 -- local function toggle_auto_comment()
 --   local formatoptions = vim.api.nvim_exec2('setlocal formatoptions?', { output = true }).output
 --   local param_index = string.find(formatoptions, '=')
