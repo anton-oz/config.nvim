@@ -1,8 +1,20 @@
 --    MOST IMPORTANTLY, we provide a keymap "<space>sh" to [s]earch the [h]elp documentation,
 --    which is very useful when you're not exactly sure of what you're looking for.
+
 -- prevent auto starting comments
-vim.cmd 'autocmd BufEnter * set formatoptions-=cro'
-vim.cmd 'autocmd BufEnter * setlocal formatoptions-=cro'
+-- TODO: make a function to toggle these
+-- vim.cmd 'autocmd BufEnter * set formatoptions-=cro'
+-- vim.cmd 'autocmd BufEnter * setlocal formatoptions-=cro'
+
+-- local function toggle_auto_comment()
+--   local formatoptions = vim.api.nvim_exec2('setlocal formatoptions?', { output = true }).output
+--   local param_index = string.find(formatoptions, '=')
+--   print(param_index)
+--   local params = string.sub(formatoptions, param_index + 1)
+--   print(params)
+-- end
+-- toggle_auto_comment()
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
