@@ -1,22 +1,3 @@
---    MOST IMPORTANTLY, we provide a keymap "<space>sh" to [s]earch the [h]elp documentation,
---    which is very useful when you're not exactly sure of what you're looking for.
-
--- prevent auto starting comments
--- TODO: make a function to toggle these
--- vim.cmd 'autocmd BufEnter * set formatoptions-=cro'
--- vim.cmd 'autocmd BufEnter * setlocal formatoptions-=cro'
-
--- https://github.com
-
--- local function toggle_auto_comment()
---   local formatoptions = vim.api.nvim_exec2('setlocal formatoptions?', { output = true }).output
---   local param_index = string.find(formatoptions, '=')
---   print(param_index)
---   local params = string.sub(formatoptions, param_index + 1)
---   print(params)
--- end
--- toggle_auto_comment()
-
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -80,10 +61,10 @@ vim.opt.splitbelow = true
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
-local set = vim.opt -- set options
-set.tabstop = 2
-set.softtabstop = 2
-set.shiftwidth = 2
+-- set default tab space to 2
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -186,7 +167,6 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
-  -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- NOTE: Plugins can also be added by using a table,
@@ -896,7 +876,7 @@ require('lazy').setup({
     'folke/todo-comments.nvim',
     event = 'VimEnter',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = { signs = false },
+    opts = { signs = true },
     -- stylua: ignore end
   },
 
@@ -1033,119 +1013,8 @@ require('lazy').setup({
     },
   },
 })
-local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
 
--- Move to previous/next
-map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
-map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
-
--- Re-order to previous/next
-map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
-map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
-
--- Goto buffer in position...
-map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
-map('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', opts)
-map('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', opts)
-map('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', opts)
-map('n', '<A-5>', '<Cmd>BufferGoto 5<CR>', opts)
-map('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', opts)
-map('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', opts)
-map('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
-map('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
-map('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
-
--- Pin/unpin buffer
-map('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
-
--- Goto pinned/unpinned buffer
---                 :BufferGotoPinned
---                 :BufferGotoUnpinned
-
--- Close buffer
-map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
-
--- Wipeout buffer
---                 :BufferWipeout
-
--- Close commands
---                 :BufferCloseAllButCurrent
---                 :BufferCloseAllButPinned
---                 :BufferCloseAllButCurrentOrPinned
---                 :BufferCloseBuffersLeft
---                 :BufferCloseBuffersRight
-
--- Magic buffer-picking mode
-map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
-map('n', '<C-s-p>', '<Cmd>BufferPickDelete<CR>', opts)
-
--- Sort automatically by...
-map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
-map('n', '<Space>bn', '<Cmd>BufferOrderByName<CR>', opts)
-map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
-map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
-map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
-
--- Other:
--- :BarbarEnable - enables barbar (enabled by default)
--- :BarbarDisable - very bad command, should never be usedlocal map = vim.api.nvim_set_keymap
-local barbarOpts = { noremap = true, silent = true }
-
--- Move to previous/next
-map('n', '<A-h>', '<Cmd>BufferPrevious<CR>', barbarOpts)
-map('n', '<A-l>', '<Cmd>BufferNext<CR>', barbarOpts)
-
--- Re-order to previous/next
-map('n', '<A-H>', '<Cmd>BufferMovePrevious<CR>', barbarOpts)
-map('n', '<A-L>', '<Cmd>BufferMoveNext<CR>', barbarOpts)
-
--- Goto buffer in position...
-map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', barbarOpts)
-map('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', barbarOpts)
-map('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', barbarOpts)
-map('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', barbarOpts)
-map('n', '<A-5>', '<Cmd>BufferGoto 5<CR>', barbarOpts)
-map('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', barbarOpts)
-map('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', barbarOpts)
-map('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', barbarOpts)
-map('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', barbarOpts)
-map('n', '<A-0>', '<Cmd>BufferLast<CR>', barbarOpts)
-
--- Pin/unpin buffer
-map('n', '<A-p>', '<Cmd>BufferPin<CR>', barbarOpts)
-
--- Goto pinned/unpinned buffer
---                 :BufferGotoPinned
---                 :BufferGotoUnpinned
-
--- Close buffer
-map('n', '<A-w>', '<Cmd>BufferClose<CR>', barbarOpts)
-
--- Wipeout buffer
---                 :BufferWipeout
-
--- Close commands
---                 :BufferCloseAllButCurrent
---                 :BufferCloseAllButPinned
---                 :BufferCloseAllButCurrentOrPinned
---                 :BufferCloseBuffersLeft
---                 :BufferCloseBuffersRight
-
--- Magic buffer-picking mode
-map('n', '<C-p>', '<Cmd>BufferPick<CR>', barbarOpts)
-map('n', '<C-s-p>', '<Cmd>BufferPickDelete<CR>', barbarOpts)
-
--- Sort automatically by...
-map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', barbarOpts)
-map('n', '<Space>bn', '<Cmd>BufferOrderByName<CR>', barbarOpts)
-map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', barbarOpts)
-map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', barbarOpts)
-map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', barbarOpts)
-
--- Other:
--- :BarbarEnable - enables barbar (enabled by default)
--- :BarbarDisable - very bad command, should never be used
+require 'custom.keymaps'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
