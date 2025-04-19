@@ -891,7 +891,14 @@ require('lazy').setup({
     end,
   },
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  {
+    -- stylua: ignore start
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = { signs = false },
+    -- stylua: ignore end
+  },
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
@@ -1113,7 +1120,7 @@ map('n', '<A-p>', '<Cmd>BufferPin<CR>', barbarOpts)
 --                 :BufferGotoUnpinned
 
 -- Close buffer
-map('n', '<A-c>', '<Cmd>BufferClose<CR>', barbarOpts)
+map('n', '<A-w>', '<Cmd>BufferClose<CR>', barbarOpts)
 
 -- Wipeout buffer
 --                 :BufferWipeout
