@@ -116,9 +116,27 @@ map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', barbarOpts)
 -- :BarbarEnable - enables barbar (enabled by default)
 -- :BarbarDisable - very bad command, should never be used
 
--- NOTE: for todo-comments
-map('n', '<leader>st', '<Cmd>TodoTelescope keyword=TODO <CR>', { desc = '[S]earch [T]odos in current directory' })
+-- NOTE: todo-comments
+map('n', '<leader>st', '<Cmd> TodoTelescope keywords=TODO <CR>', { desc = '[S]earch [T]odos in current directory' })
+map('n', '<leader>sN', '<Cmd> TodoTelescope keywords=NOTE <CR>', { desc = '[S]earch [N]otes' })
 
--- NOTE: for saving folds in files / loading them
-map('n', '<leader>zs', '<Cmd>mkview <CR>', { desc = 'save folds in current file' })
-map('n', '<leader>zl', '<Cmd>loadview <CR>', { desc = 'load folds for current file' })
+-- NOTE: saving folds in files / loading them
+map('n', '<leader>zs', function()
+  vim.cmd ':mkview'
+  print 'saved folds'
+end, {
+  desc = 'save folds in current file',
+})
+
+map('n', '<leader>zl', function()
+  vim.cmd ':loadview'
+  print 'loaded folds'
+end, {
+  desc = 'load folds for current file',
+})
+
+-- NOTE: shortcut for opening lazyvim
+map('n', '<leader>l', '<Cmd>Lazy <CR>', { desc = 'open lazyvim' })
+
+-- NOTE:  open main menu
+map('n', '<leader>m', '<Cmd> Alpha <CR>', { desc = '[M]ain Menu' })
