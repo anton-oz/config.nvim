@@ -19,7 +19,9 @@ return {
     filesystem = {
       hijack_netrw_behavior = 'open_current',
       filtered_items = {
-        visible = true,
+        -- NOTE: enable next line to show all hidden files by default
+        -- visible = true,
+
         -- hide_dotfiles = false,
         -- hide_gitignored = false,
         -- hide_hidden = false,

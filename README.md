@@ -7,6 +7,7 @@ My nvim config
 ```bash
 cd $HOME/.config
 git clone git@github.com:anton-oz/config.nvim
+mv config.nvim nvim
 ```
 
 

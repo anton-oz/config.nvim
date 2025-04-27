@@ -83,6 +83,7 @@ vim.opt.confirm = true
 
 -- NOTE: [[ Basic Keymaps ]]
 -- See `:help vim.keymap.set()`
+
 local function toggle_diagnostic_float()
   if vim.diagnostic.open_float then
     vim.diagnostic.open_float()
