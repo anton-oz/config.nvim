@@ -45,6 +45,7 @@ map('n', '<A-r>', '<Cmd>BufferRestore <CR>', opts)
 --                 :BufferCloseAllButCurrentOrPinned
 --                 :BufferCloseBuffersLeft
 --                 :BufferCloseBuffersRight
+map('n', '<leader>ba', '<Cmd> BufferCloseAllButCurrent <CR>', opts)
 
 -- Magic buffer-picking mode
 map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
@@ -79,8 +80,12 @@ end, {
   desc = 'load folds for current file',
 })
 
--- NOTE: shortcut for opening lazyvim
 map('n', '<leader>l', '<Cmd>Lazy <CR>', { desc = 'open lazyvim' })
 
--- NOTE:  open main menu
 map('n', '<leader>m', '<Cmd> Alpha <CR>', { desc = '[M]ain Menu' })
+
+-- NOTE: terminal mode
+
+map('n', '<leader>o', '<Cmd> terminal <CR>', { desc = '[O]pen terminal' })
+-- enter normal mode
+map('t', '<C-\\>', '<C-\\><C-n>', { noremap = true })
