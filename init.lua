@@ -660,6 +660,7 @@ require('lazy').setup({
         'prettierd',
         'python-lsp-server',
         'tailwindcss-language-server',
+        'css-lsp',
         'typescript-language-server',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
