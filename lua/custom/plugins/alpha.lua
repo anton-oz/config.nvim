@@ -83,6 +83,7 @@ return {
       section.header.val = logo
 
       section.buttons.val = {
+        dashboard.button('t', '  > open terminal', ':terminal<CR>'),
         dashboard.button('o', '󰉋  > open current dir', ':Neotree current<CR>'),
         dashboard.button('e', '  > New File', ':ene <CR>'),
         dashboard.button('r', '  > Recent Files', ':Telescope oldfiles <CR>'),

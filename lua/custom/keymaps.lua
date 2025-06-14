@@ -89,3 +89,7 @@ map('n', '<leader>m', '<Cmd> Alpha <CR>', { desc = '[M]ain Menu' })
 map('n', '<leader>o', '<Cmd> terminal <CR>', { desc = '[O]pen terminal' })
 -- enter normal mode
 map('t', '<C-\\>', '<C-\\><C-n>', { noremap = true })
+
+-- NOTE: quit nvim
+
+map('n', '<leader>Q', 'ZZ', { desc = '[Q]uit and save' })
