@@ -17,7 +17,7 @@ return {
   lazy = false,
   opts = {
     filesystem = {
-      hijack_netrw_behavior = 'open_current',
+      hijack_netrw_behavior = 'disabled',
       filtered_items = {
         -- NOTE: enable next line to show all hidden files by default
         -- visible = true,
