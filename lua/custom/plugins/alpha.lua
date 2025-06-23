@@ -84,12 +84,12 @@ return {
 
       section.buttons.val = {
         dashboard.button('t', '  > open terminal', ':terminal<CR>'),
-        dashboard.button('o', '󰉋  > open current dir', ':Neotree current<CR>'),
+        dashboard.button('o', '󰉋  > open current dir', ':Yazi cwd<CR>'),
         dashboard.button('e', '  > New File', ':ene <CR>'),
         dashboard.button('r', '  > Recent Files', ':Telescope oldfiles <CR>'),
         dashboard.button('f', '󰈞  > Find File', ':cd $HOME | Telescope find_files hidden=true no_ignore=true <CR>'),
-        dashboard.button('c', '  > Edit NeoVim Config', ':cd $nvim | Neotree current <CR>'),
-        dashboard.button('C', '󰈮  > Open Coder', ':cd $HOME/coder | Neotree current <CR>'),
+        dashboard.button('c', '  > Edit NeoVim Config', ':cd $nvim | :Yazi cwd <CR>'),
+        dashboard.button('C', '󰈮  > Open Coder', ':cd $HOME/coder | :Yazi cwd <CR>'),
         dashboard.button('q', '  > Quit NeoVim', ':q!<CR>'),
       }
 
