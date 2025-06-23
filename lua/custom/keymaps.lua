@@ -82,7 +82,7 @@ end, {
 
 map('n', '<leader>l', '<Cmd>Lazy <CR>', { desc = 'open lazyvim' })
 
-map('n', '<leader>m', '<Cmd> Alpha <CR>', { desc = '[M]ain Menu' })
+map('n', '<leader>M', '<Cmd> Alpha <CR>', { desc = '[M]ain menu' })
 
 -- NOTE: terminal mode
 
@@ -93,3 +93,5 @@ map('t', '<C-\\>', '<C-\\><C-n>', { noremap = true })
 -- NOTE: quit nvim
 
 map('n', '<leader>Q', 'ZZ', { desc = '[Q]uit and save' })
+
+map('n', '<leader>m', '<Cmd> Mason <CR>', { desc = 'open [m]ason' })
