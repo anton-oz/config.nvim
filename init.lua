@@ -880,7 +880,12 @@ require('lazy').setup({
     'folke/todo-comments.nvim',
     event = 'VimEnter',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = { signs = true },
+    opts = { signs = true, keywords = {
+      DOC = {
+        icon = "󰷈 ",
+        color = "#a6e3a1"
+      }
+    } },
     -- stylua: ignore end
   },
 
@@ -1020,3 +1025,17 @@ require('lazy').setup({
 })
 
 require 'custom.keymaps'
+
+-- DOC:
+-- when neovim is called to open directory,
+-- also toggle the main menu so when you exit
+-- yazi there is not an empty buffer
+vim.api.nvim_create_autocmd('VimEnter', {
+  callback = function()
+    local args = vim.fn.argv()
+    if #args == 1 and vim.fn.isdirectory(args[1]) == 1 then
+      vim.cmd 'Alpha'
+      vim.cmd 'Yazi cwd'
+    end
+  end,
+})
