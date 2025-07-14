@@ -65,6 +65,10 @@ map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 map('n', '<leader>st', '<Cmd> TodoTelescope keywords=TODO <CR>', { desc = '[S]earch [T]odos in current directory' })
 map('n', '<leader>sN', '<Cmd> TodoTelescope keywords=NOTE <CR>', { desc = '[S]earch [N]otes' })
 
+-- TODO:
+-- create a plugin that will detect functions, and automatically fold them when you press a shortcut
+-- plugin will auto update when the functions change their location in the file.
+
 -- NOTE: saving folds in files / loading them
 map('n', '<leader>zs', function()
   vim.cmd ':mkview'
@@ -80,9 +84,11 @@ end, {
   desc = 'load folds for current file',
 })
 
+-- toggle lazy
 map('n', '<leader>l', '<Cmd>Lazy <CR>', { desc = 'open lazyvim' })
 
-map('n', '<leader>M', '<Cmd> Alpha <CR>', { desc = '[M]ain menu' })
+-- toggle main menu
+map('n', '<leader>m', '<Cmd> Alpha <CR>', { desc = '[M]ain menu' })
 
 -- NOTE: terminal mode
 
@@ -94,4 +100,6 @@ map('t', '<C-\\>', '<C-\\><C-n>', { noremap = true })
 
 map('n', '<leader>Q', 'ZZ', { desc = '[Q]uit and save' })
 
-map('n', '<leader>m', '<Cmd> Mason <CR>', { desc = 'open [m]ason' })
+map('n', '<leader>M', '<Cmd> Mason <CR>', { desc = 'open [m]ason' })
+
+-- NOTE: react shortcuts

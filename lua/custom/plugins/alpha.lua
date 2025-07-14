@@ -83,8 +83,8 @@ return {
       section.header.val = logo
 
       section.buttons.val = {
-        dashboard.button('t', '  > open terminal', ':terminal<CR>'),
-        dashboard.button('o', '󰉋  > open current dir', ':Yazi cwd<CR>'),
+        dashboard.button('o', '  > open terminal', ':terminal<CR>'),
+        dashboard.button('O', '󰉋  > open current dir', ':Yazi cwd<CR>'),
         dashboard.button('e', '  > New File', ':ene <CR>'),
         dashboard.button('r', '  > Recent Files', ':Telescope oldfiles <CR>'),
         dashboard.button('f', '󰈞  > Find File', ':cd $HOME | Telescope find_files hidden=true no_ignore=true <CR>'),

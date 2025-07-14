@@ -16,6 +16,7 @@ return {
   },
   lazy = false,
   opts = {
+
     filesystem = {
       hijack_netrw_behavior = 'disabled',
       filtered_items = {
@@ -27,6 +28,7 @@ return {
         -- hide_hidden = false,
       },
       window = {
+        position = 'right',
         mappings = {
           ['\\'] = 'close_window',
           ['<F2>'] = 'close_window',
