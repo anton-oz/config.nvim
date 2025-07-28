@@ -41,7 +41,7 @@ map('n', '<A-r>', '<Cmd>BufferRestore <CR>', opts)
 
 -- Close commands
 --                 :BufferCloseAllButCurrent
---                 :BufferCloseAllButPinned
+--                 :BuffeCloseAllButPinned
 --                 :BufferCloseAllButCurrentOrPinned
 --                 :BufferCloseBuffersLeft
 --                 :BufferCloseBuffersRight
@@ -103,3 +103,6 @@ map('n', '<leader>Q', 'ZZ', { desc = '[Q]uit and save' })
 map('n', '<leader>M', '<Cmd> Mason <CR>', { desc = 'open [m]ason' })
 
 -- NOTE: react shortcuts
+
+-- useEffect boilerplate
+map('n', '<leader>rue', 'auseEffect(()=>{}, []);<Esc>b3hi<CR><Esc>O', { unpack(opts), desc = '[r]eact [u]se [e]ffect' })

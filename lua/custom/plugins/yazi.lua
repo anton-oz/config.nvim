@@ -29,6 +29,11 @@ return {
       '<cmd>Yazi toggle<cr>',
       desc = 'Resume the last yazi session',
     },
+    {
+      '<leader>O',
+      '<cmd>Yazi toggle<cr>',
+      desc = '[O]pen current directory',
+    },
   },
   ---@type YaziConfig | {}
   opts = {
