@@ -94,6 +94,7 @@ map('n', '<leader>si', '<Cmd> NvimWebDeviconsHiTest <CR>', { desc = '[s]earch [i
 -- useEffect boilerplate
 map('n', '<leader>rue', 'auseEffect(()=>{}, []);<Esc>b3hi<CR><Esc>O', { unpack(opts), desc = '[r]eact [u]se [e]ffect' })
 
+-- NOTE: diagnostics
 local function toggle_diagnostic_float()
   if vim.diagnostic.open_float then
     vim.diagnostic.open_float()
@@ -119,11 +120,11 @@ map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- or just use <C-\><C-n> to exit terminal mode
 map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- TIP: Disable arrow keys in normal mode
--- map('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- map('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- map('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- map('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+-- NOTE: Disable arrow keys in normal mode
+map('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+map('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+map('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+map('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -139,3 +140,5 @@ map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 -- map("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
 -- map("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- map("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
+
+map('n', 'ZZ', ':xa<CR>', { desc = 'Save all changed buffers and quit.' })
