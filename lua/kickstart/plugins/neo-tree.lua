@@ -33,6 +33,9 @@ return {
           ['<F2>'] = 'close_window',
         },
       },
+      cwd_target = {
+        sidebar = 'global',
+      },
     },
   },
 }
