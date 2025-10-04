@@ -493,14 +493,17 @@ require('lazy').setup({
         'bash-language-server',
         'clang-format',
         'clangd',
+        'python-lsp-server',
         'eslint-lsp',
         'lua-language-server',
         'prettier',
         'prettierd',
-        'python-lsp-server',
         'tailwindcss-language-server',
         'css-lsp',
         'typescript-language-server',
+        'goimports',
+        'golangci-lint',
+        'gopls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
