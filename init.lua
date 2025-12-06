@@ -544,7 +544,8 @@ require('lazy').setup({
           return nil
         else
           return {
-            timeout_ms = 500,
+            -- adjust this if having problems formatting huge files
+            timeout_ms = 5000,
             lsp_format = 'fallback',
           }
         end
@@ -571,6 +572,9 @@ require('lazy').setup({
       formatters = {
         clang_format = {
           config = { '~/.clang-format' },
+        },
+        prettierd = {
+          config = { '~/.prettier' },
         },
       },
     },
@@ -670,11 +674,12 @@ require('lazy').setup({
               luasnip.expand_or_jump()
             end
           end, { 'i', 's' }),
-          ['<C-h>'] = cmp.mapping(function()
-            if luasnip.locally_jumpable(-1) then
-              luasnip.jump(-1)
-            end
-          end, { 'i', 's' }),
+          -- NOTE: commented out because it conflicts with custom delete keymap in ./lua/custom/keymaps.lua
+          -- ['<C-h>'] = cmp.mapping(function()
+          --   if luasnip.locally_jumpable(-1) then
+          --     luasnip.jump(-1)
+          --   end
+          -- end, { 'i', 's' }),
 
           -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps

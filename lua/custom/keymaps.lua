@@ -142,3 +142,10 @@ map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 -- map("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
 map('n', 'ZZ', ':xa<CR>', { desc = 'Save all changed buffers and quit.' })
+
+map('n', '<C-s>', ':wa<CR>', { desc = '[S]ave all files' })
+
+-- weirdness for macbook cuz delete key broke
+map('i', '<C-H>', '<BS>', { desc = 'delete previous character', unpack(opts) })
+
+map('i', '<C-d>', '<Del>', { desc = 'delete next character', unpack(opts) })
