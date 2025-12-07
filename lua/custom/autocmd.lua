@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd('VimEnter', {
     local args = vim.fn.argv()
     if #args == 1 and vim.fn.isdirectory(args[1]) == 1 then
       vim.cmd 'Alpha'
-      vim.cmd 'Yazi cwd'
+      require('yazi').yazi({}, args[1])
     end
   end,
 })
