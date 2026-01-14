@@ -94,6 +94,8 @@ map('n', '<leader>si', '<Cmd> NvimWebDeviconsHiTest <CR>', { desc = '[s]earch [i
 -- useEffect boilerplate
 map('n', '<leader>rue', 'auseEffect(()=>{}, []);<Esc>b3hi<CR><Esc>O', { unpack(opts), desc = '[r]eact [u]se [e]ffect' })
 
+map('n', '<leader>ja', 'a() => {\n};<Esc>O', { desc = '[J]avaScript [A]rrow function', unpack(opts) })
+
 -- NOTE: diagnostics
 local function toggle_diagnostic_float()
   if vim.diagnostic.open_float then
