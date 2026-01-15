@@ -6,9 +6,16 @@ return {
       -- local alpha = require 'alpha'
       local dashboard = require 'alpha.themes.dashboard'
       local section = dashboard.section
+
+      local screen_height = vim.o.lines
+      local logo_ratio = screen_height / 10
+      local spaces = {}
+      for _ = 1, logo_ratio do
+        table.insert(spaces, ' ')
+      end
       -- stylua: ignore start
       ---@diagnostic disable-next-line
-      local logo = {
+      local logo = vim.list_extend(spaces, {
         [[███▄▄▄▄      ▄████████  ▄██████▄   ▄█    █▄   ▄█    ▄▄▄▄███▄▄▄▄]],
         [[███▀▀▀██▄   ███    ███ ███    ███ ███    ███ ███  ▄██▀▀▀███▀▀▀██▄]],
         [[███   ███   ███    █▀  ███    ███ ███    ███ ███▌ ███   ███   ███]],
@@ -18,7 +25,7 @@ return {
         [[███   ███   ███    ███ ███    ███ ███    ███ ███  ███   ███   ███]],
         [[ ▀█   █▀    ██████████  ▀██████▀   ▀██████▀  █▀    ▀█   ███   █▀ ]],
         '',
-      }
+      })
       -- stylua: ignore end
       ---@diagnostic disable-next-line
       local rubin = {
