@@ -501,7 +501,6 @@ require('lazy').setup({
         'lua-language-server',
         'prettier',
         'prettierd',
-        'tailwindcss-language-server',
         'css-lsp',
         'typescript-language-server',
         'goimports',
@@ -783,8 +782,12 @@ require('lazy').setup({
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+    main = 'nvim-treesitter.config', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+    -- config = function()
+    --   local configs = require('nvim-treesitter.config')
+    -- end
+
     opts = {
       ensure_installed = {
         'bash',
