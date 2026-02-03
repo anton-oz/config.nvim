@@ -15,7 +15,7 @@ end
 
 return {
   'toggle_auto_comment',
-  dir = '~/.config/nvim/lua/custom',
+  dir = '~/.config/nvim/lua/src',
   keys = {
     { '<leader>tc', toggle_auto_comment, desc = '[T]oggle Auto [C]omments' },
   },

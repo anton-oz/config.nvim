@@ -2,6 +2,13 @@
 -- See `:help vim.opt`
 --  For more options, you can see `:help option-list`
 
+-- Assign leader key. Should be done first to prevent wrong leader key being used.
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+-- Set to true if you have a Nerd Font installed and selected in the terminal.
+vim.g.have_nerd_font = true
+
 --  Make line numbers default
 vim.opt.number = true
 
