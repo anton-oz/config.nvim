@@ -19,11 +19,6 @@ return {
         --- A new feature that is centered around tags
         completion = {
           --- Defaults to .cursor/rules
-          -- I am going to disable these until i understand the
-          -- problem better.  Inside of cursor rules there is also
-          -- application rules, which means i need to apply these
-          -- differently
-          -- cursor_rules = "<custom path to cursor rules>"
 
           --- A list of folders where you have your own SKILL.md
           --- Expected format:
@@ -38,13 +33,15 @@ return {
           --- ... the other rules in that dir ...
           ---
           custom_rules = {
-            'scratch/custom_rules/',
+            '~/coder/llm/prompts/rules/',
           },
 
           --- What autocomplete do you use.  We currently only
           --- support cmp right now
           source = 'cmp',
         },
+
+        model = 'llama.cpp/rubin',
 
         --- WARNING: if you change cwd then this is likely broken
         --- ill likely fix this in a later change
