@@ -2,8 +2,6 @@
 
 My nvim config
 
-> IMPORTANT: Dont update lazy packages, as it will cause breaking changes with neo-tree
-
 ## installation
 
 ```bash
