@@ -156,3 +156,5 @@ map('n', 'S', ':wa<CR>', { desc = '[S]aves all files' })
 map('i', '<C-H>', '<BS>', { desc = 'delete previous character', unpack(opts) })
 
 map('i', '<C-d>', '<Del>', { desc = 'delete next character', unpack(opts) })
+
+map('i', '<S-Tab>', '<Esc>', { desc = 'escape insert mode (additional binding)' })
