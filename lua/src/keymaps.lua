@@ -94,7 +94,11 @@ map('n', '<leader>si', '<Cmd> NvimWebDeviconsHiTest <CR>', { desc = '[s]earch [i
 -- useEffect boilerplate
 map('n', '<leader>rue', 'auseEffect(()=>{}, []);<Esc>b3hi<CR><Esc>O', { unpack(opts), desc = '[r]eact [u]se [e]ffect' })
 
-map('n', '<leader>ja', 'a() => {\n};<Esc>O', { desc = '[J]avaScript [A]rrow function', unpack(opts) })
+-- NOTE: Javascript shortcuts() => {}
+
+map('n', '<leader>ja', 'a() => {}<Esc>', { desc = '[J]avaScript [A]rrow function', unpack(opts) })
+
+map('n', '<leader>jf', 'afor () {}<Esc>3h', { desc = '[J]avaScript [F]or loop', unpack(opts) })
 
 -- NOTE: diagnostics
 local function toggle_diagnostic_float()
@@ -145,7 +149,8 @@ map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 map('n', 'ZZ', ':xa<CR>', { desc = 'Save all changed buffers and quit.' })
 
-map('n', '<C-s>', ':wa<CR>', { desc = '[S]ave all files' })
+map('n', 's', ':w<CR>', { desc = '[S]ave current file' })
+map('n', 'S', ':wa<CR>', { desc = '[S]aves all files' })
 
 -- weirdness for macbook cuz delete key broke
 map('i', '<C-H>', '<BS>', { desc = 'delete previous character', unpack(opts) })

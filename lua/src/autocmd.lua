@@ -12,7 +12,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- DOC:
 -- when neovim is called to open directory,
 -- also toggle the main menu so when you exit
 -- yazi there is not an empty buffer
@@ -23,5 +22,13 @@ vim.api.nvim_create_autocmd('VimEnter', {
       vim.cmd 'Alpha'
       require('yazi').yazi({}, args[1])
     end
+  end,
+})
+
+-- syntax highlighting j
+vim.api.nvim_create_autocmd('filetype', {
+  pattern = { 'svelte' },
+  callback = function()
+    vim.treesitter.start()
   end,
 })

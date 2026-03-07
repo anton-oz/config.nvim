@@ -1,8 +1,11 @@
 return {
   { -- Highlight, edit, and navigate code
+    -- See `:help nvim-treesitter`
     'nvim-treesitter/nvim-treesitter',
-    -- See `:help nvim-treesitter` for more info
     build = ':TSUpdate',
+    -- Sets main module to use for opts
+    -- main = 'src.plugins.treesitter',
+
     opts = {
       ensure_installed = {
         'bash',
@@ -23,6 +26,7 @@ return {
         'scss',
         'rust',
         'python',
+        'svelte',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,

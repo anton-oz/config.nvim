@@ -86,3 +86,6 @@ vim.opt.foldminlines = 6
 
 -- for nvim-highlight-colors
 vim.opt.termguicolors = true
+
+-- visually mark column 80
+vim.opt.colorcolumn = '80'
