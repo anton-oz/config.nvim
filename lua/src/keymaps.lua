@@ -150,3 +150,12 @@ map('n', '<leader>R', '<cmd>checktime<CR>', {
   desc = '[R]eload the current file (updates with any outside changes, prompts if conflict)',
   unpack(opts),
 })
+
+map('n', '<leader>H', function()
+  local col = vim.opt.colorcolumn
+  if col._value == '80' then
+    vim.opt.colorcolumn = ''
+  else
+    vim.opt.colorcolumn = '80'
+  end
+end, { desc = 'Toggle visually marking column 80' })
