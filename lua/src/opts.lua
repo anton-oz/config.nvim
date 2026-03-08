@@ -9,6 +9,8 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal.
 vim.g.have_nerd_font = true
 
+vim.g.recently_closed_buffers = {}
+
 --  Make line numbers default
 vim.opt.number = true
 
@@ -89,3 +91,6 @@ vim.opt.termguicolors = true
 
 -- visually mark column 80
 vim.opt.colorcolumn = '80'
+
+-- store some whitespace in i cuz why not
+vim.fn.setreg('i', '\n\n\n\n')
