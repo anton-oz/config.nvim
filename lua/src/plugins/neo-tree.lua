@@ -9,7 +9,12 @@ return {
   cmd = 'Neotree',
   keys = {
     { '\\', ':Neotree toggle<CR>', desc = 'NeoTree toggle', silent = true },
-    { '<F2>', ':Neotree current<CR>', desc = 'Neotree full view', silent = true },
+    {
+      '<F2>',
+      ':Neotree current<CR>',
+      desc = 'Neotree full view',
+      silent = true,
+    },
   },
   lazy = false,
   opts = {
