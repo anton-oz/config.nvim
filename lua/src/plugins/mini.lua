@@ -40,7 +40,7 @@ return {
       vim.api.nvim_set_hl(
         0,
         'MiniTablineModifiedCurrent',
-        { fg = '#f9e2af', bg = '#313244', bold = true }
+        { fg = '#f9e2af', bg = '#313244', underline = true, bold = true }
       )
       vim.api.nvim_set_hl(
         0,
