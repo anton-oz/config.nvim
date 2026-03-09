@@ -8,7 +8,7 @@ return {
       local section = dashboard.section
 
       local screen_height = vim.o.lines
-      local logo_ratio = screen_height / 10
+      local logo_ratio = screen_height / 8
       local spaces = {}
       for _ = 1, logo_ratio do
         table.insert(spaces, ' ')
