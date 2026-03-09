@@ -33,6 +33,8 @@ return {
               ['<C-k>'] = 'move_selection_previous',
             },
           },
+          border = true,
+          borderchars = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
         },
         -- pickers = {}
         extensions = {
