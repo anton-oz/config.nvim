@@ -18,6 +18,8 @@ return {
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
+      require('mini.statusline').setup()
+
       require('mini.tabline').setup()
       -- Example: Catppuccin-inspired style
       vim.api.nvim_set_hl(
