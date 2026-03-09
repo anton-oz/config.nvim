@@ -88,6 +88,3 @@ vim.opt.foldminlines = 6
 
 -- for nvim-highlight-colors
 vim.opt.termguicolors = true
-
--- store some whitespace in i cuz why not
-vim.fn.setreg('i', '\n\n\n\n')
