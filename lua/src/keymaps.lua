@@ -1,7 +1,6 @@
 -- NOTE: [[ Basic Keymaps ]]
 -- See `:help vim.keymap.set()`
 --
--- The difference between ':' and '<
 
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
@@ -151,7 +150,7 @@ map('n', '<leader>R', '<cmd>checktime<CR>', {
   unpack(opts),
 })
 
-map('n', '<leader>H', function()
+map('n', '<leader>h', function()
   local col = vim.opt.colorcolumn
   if col._value == '80' then
     vim.opt.colorcolumn = ''
@@ -159,3 +158,27 @@ map('n', '<leader>H', function()
     vim.opt.colorcolumn = '80'
   end
 end, { desc = 'Toggle visually marking column 80' })
+
+map(
+  'n',
+  '<leader>so',
+  '<cmd>Telescope oldfiles<CR>',
+  { desc = '[s]earch [o]ldfiles (recent files)' }
+)
+
+-- Yazi
+map(
+  'n',
+  '-',
+  '<cmd>Yazi<cr>',
+  { desc = 'Open yazi at the current file', unpack(opts) }
+)
+
+map('n', '\\', '<cmd>Yazi cwd<cr>', { desc = 'Open yazi at cwd', unpack(opts) })
+
+map(
+  'n',
+  '<c-\\>',
+  '<cmd>Yazi toggle<cr>',
+  { desc = 'Resume the last yazi session', unpack(opts) }
+)
