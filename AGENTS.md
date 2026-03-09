@@ -1,12 +1,8 @@
 # neovim config repository
 
----
-
 ## Repo rules
 
-- always use builtin lua vim function bindings where applicable.
-
----
+- always use builtin lua vim bindings where applicable.
 
 ## Repo structure
 
@@ -14,5 +10,3 @@
 - `lua/src/` – core modules (`autocmd.lua`, `opts.lua`, `keymaps.lua`,
 `lazy.lua`).
 - `lua/src/plugins/` – each file is a lazy plugin module.
-
----
