@@ -26,25 +26,16 @@ return {
       -- Useful status updates for LSP.
       { 'j-hui/fidget.nvim', opts = {} },
 
-      -- Allows extra capabilities provided by nvim-cmp
-      'hrsh7th/cmp-nvim-lsp',
+      -- Allows extra capabilities provided by nvim-cmp 'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
       --  This function gets run when an LSP attaches to a particular buffer.
-      --    That is to say, every time a new file is opened that is associated with
-      --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
-      --    function will be executed to configure the current buffer
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup(
           'kickstart-lsp-attach',
           { clear = true }
         ),
         callback = function(event)
-          -- NOTE: Remember that Lua is a real programming language, and as such it is possible
-          -- to define small helper and utility functions so you don't have to repeat yourself.
-          --
-          -- In this case, we create a function that lets us more easily define mappings specific
-          -- for LSP related items. It sets the mode, buffer and description for us each time.
           local map = function(keys, func, desc, mode)
             mode = mode or 'n'
             vim.keymap.set(
@@ -56,8 +47,6 @@ return {
           end
 
           -- Jump to the definition of the word under your cursor.
-          --  This is where a variable was first declared, or where a function is defined, etc.
-          --  To jump back, press <C-t>.
           map(
             'gd',
             require('telescope.builtin').lsp_definitions,
@@ -72,7 +61,6 @@ return {
           )
 
           -- Jump to the implementation of the word under your cursor.
-          --  Useful when your language has ways of declaring types without an actual implementation.
           map(
             'gI',
             require('telescope.builtin').lsp_implementations,
@@ -80,8 +68,6 @@ return {
           )
 
           -- Jump to the type of the word under your cursor.
-          --  Useful when you're not sure what type a variable is and you want to see
-          --  the definition of its *type*, not where it was *defined*.
           map(
             '<leader>D',
             require('telescope.builtin').lsp_type_definitions,
@@ -89,7 +75,6 @@ return {
           )
 
           -- Fuzzy find all the symbols in your current document.
-          --  Symbols are things like variables, functions, types, etc.
           map(
             '<leader>ds',
             require('telescope.builtin').lsp_document_symbols,
@@ -97,7 +82,6 @@ return {
           )
 
           -- Fuzzy find all the symbols in your current workspace.
-          --  Similar to document symbols, except searches over your entire project.
           map(
             '<leader>ws',
             require('telescope.builtin').lsp_dynamic_workspace_symbols,
@@ -105,7 +89,6 @@ return {
           )
 
           -- Rename the variable under your cursor.
-          --  Most Language Servers support renaming across files, etc.
           map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
 
           -- Execute a code action, usually your cursor needs to be on top of an error
@@ -204,7 +187,10 @@ return {
       -- See :help vim.diagnostic.Opts
       vim.diagnostic.config {
         severity_sort = true,
-        float = { border = 'rounded', source = 'if_many' },
+        float = {
+          border = 'solid',
+          source = 'if_many',
+        },
         underline = { severity = vim.diagnostic.severity.ERROR },
         signs = vim.g.have_nerd_font and {
           text = {
@@ -240,82 +226,12 @@ return {
         require('cmp_nvim_lsp').default_capabilities()
       )
 
-      -- Enable language servers
-      --  add/remove any LSPs that you want here. They will automatically be installed.
-      --
-      --  Add any additional override configuration in the following tables. Available keys are:
-      --  - cmd (table): Override the default command used to start the server
-      --  - filetypes (table): Override the default list of associated filetypes for the server
-      --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
-      --  - settings (table): Override the default settings passed when initializing the server.
-      --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-      local servers = {
-        clangd = {
-          filetypes = {
-            'c',
-            'cpp',
-            'objc',
-            'objcpp',
-            'cuda',
-            'ino',
-          },
-        },
-        bashls = {
-          filetypes = {
-            'bash',
-            'sh',
-            'zsh',
-          },
-        },
-        lua_ls = {
-          settings = {
-            Lua = {
-              completion = {
-                callSnippet = 'Replace',
-              },
-              -- only for neovim configuration
-              diagnostics = {
-                globals = { 'vim' },
-              },
-            },
-          },
-        },
-      }
+      -- TODO:
+      -- * Figure out a way to keep a lockfile for installed mason packages.
+      -- * [mason](~/.local/share/nvim/mason)
 
-      -- Ensure the servers and tools above are installed
-      --
-      -- To check the current status of installed tools and/or manually install
-      -- other tools, you can run
-      --    :Mason
-      --
-      -- You can press `g?` for help in this menu.
-      --
-      -- `mason` had to be setup earlier: to configure its options see the
-      -- `dependencies` table for `nvim-lspconfig` above.
-      --
-      -- You can add other tools here that you want Mason to install
-      -- for you, so that they are available from within Neovim.
-      local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
-        -- NOTE: PUT LSP's that you want to sync here!!
-        'bash-language-server',
-        'clang-format',
-        'clangd',
-        'python-lsp-server',
-        'eslint-lsp',
-        'lua-language-server',
-        'prettier',
-        'prettierd',
-        'css-lsp',
-        'typescript-language-server',
-        'goimports',
-        'golangci-lint',
-        'gopls',
-        'svelte-language-server',
-      })
       require('mason-tool-installer').setup {
-        ensure_installed = ensure_installed,
+        ensure_installed = {},
       }
 
       require('mason-lspconfig').setup {
@@ -323,7 +239,7 @@ return {
         automatic_installation = false,
         handlers = {
           function(server_name)
-            vim.lsp.enable(server_name)
+            require('lspconfig')[server_name].setup()
           end,
         },
       }
