@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd('VimEnter', {
 -- syntax highlighting for svelte its hacky but for some
 -- reason treesitter isnt starting on svelte file entry
 vim.api.nvim_create_autocmd('filetype', {
-  pattern = { 'svelte' },
+  pattern = { 'svelte', 'markdown' },
   callback = function()
     vim.treesitter.start()
   end,
