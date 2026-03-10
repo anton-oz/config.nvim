@@ -182,3 +182,12 @@ map(
   '<cmd>Yazi toggle<cr>',
   { desc = 'Resume the last yazi session', unpack(opts) }
 )
+
+map('n', '<leader>w', function()
+  local wrap = vim.opt.wrap
+  if wrap._value then
+    vim.cmd 'set nowrap'
+  else
+    vim.cmd 'set wrap'
+  end
+end, { desc = '[w]rap text toggle' })
