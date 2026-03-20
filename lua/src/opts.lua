@@ -88,3 +88,9 @@ vim.opt.foldminlines = 6
 
 -- for nvim-highlight-colors
 vim.opt.termguicolors = true
+
+vim.filetype.add {
+  extension = {
+    { zsh = 'bash' },
+  },
+}
