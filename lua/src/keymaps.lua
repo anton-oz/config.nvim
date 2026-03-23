@@ -191,3 +191,9 @@ map('n', '<leader>w', function()
     vim.cmd 'set wrap'
   end
 end, { desc = '[w]rap text toggle' })
+
+-- asd this is sometings
+map('n', '<leader>sc', function()
+  vim.opt.spell = not vim.opt.spell:get()
+  vim.notify('Spell: ' .. (vim.opt.spell:get() and 'ON' or 'OFF'))
+end, { desc = '[s]pell [c]heck' })
