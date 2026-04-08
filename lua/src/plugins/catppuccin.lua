@@ -1,5 +1,4 @@
 return {
-  -- stylua: ignore start
   {
     'catppuccin/nvim',
     name = 'catppuccin',
@@ -8,7 +7,6 @@ return {
       styles = {
         comments = {},
       },
-    }
+    },
   },
-  -- stylua: ignore end
 }
