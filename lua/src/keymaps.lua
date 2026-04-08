@@ -183,16 +183,15 @@ map(
   { desc = 'Resume the last yazi session', unpack(opts) }
 )
 
-map('n', '<leader>w', function()
+map('n', '<leader>tw', function()
   local wrap = vim.opt.wrap
   if wrap._value then
     vim.cmd 'set nowrap'
   else
-    vim.cmd 'set wrap'
+    vim.cmd 'set wrap linebreak'
   end
 end, { desc = '[w]rap text toggle' })
 
--- asd this is sometings
 map('n', '<leader>sc', function()
   vim.opt.spell = not vim.opt.spell:get()
   vim.notify('Spell: ' .. (vim.opt.spell:get() and 'ON' or 'OFF'))
