@@ -82,7 +82,7 @@ vim.opt.confirm = true
 
 -- NOTE: all folding options
 vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()' -- use treesitters builtin folding, kinda jank but works
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()' -- use treesitters builtin folding, kinda jank but works
 vim.opt.foldlevel = 99 -- 99 = open all folds by default, 0 = close all folds by default.
 vim.opt.foldminlines = 6
 
