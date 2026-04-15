@@ -5,6 +5,8 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+require 'src.functions'
+
 -- NOTE: buffer navigation
 
 -- left
@@ -197,20 +199,4 @@ map('n', '<leader>sc', function()
   vim.notify('Spell: ' .. (vim.opt.spell:get() and 'ON' or 'OFF'))
 end, { desc = '[s]pell [c]heck' })
 
-map('n', '<leader>tc', function()
-  local current = vim.g.colors_name or ''
-  local new_scheme = current == 'catppuccin-mocha' and 'catppuccin-latte'
-    or 'catppuccin-mocha'
-  vim.cmd('colorscheme ' .. new_scheme)
-
-  local colorscheme_filepath =
-    vim.fn.expand '~/.config/nvim/lua/src/plugins/colorscheme.lua'
-
-  local lines = vim.fn.readfile(colorscheme_filepath)
-  local new_lines = {}
-  for _, line in ipairs(lines) do
-    local new_line = vim.fn.substitute(line, current, new_scheme, '')
-    table.insert(new_lines, new_line)
-  end
-  vim.fn.writefile(new_lines, colorscheme_filepath)
-end, { desc = '[t]oggle [c]olorscheme' })
+map('n', '<leader>tc', toggle_dark_theme, { desc = '[t]oggle [c]olorscheme' })
